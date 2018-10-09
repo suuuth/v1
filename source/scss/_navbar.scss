@@ -1,0 +1,104 @@
+.navbar {
+  align-items: center;
+  background: $white;
+  border-bottom: 1px solid $blue-op;
+  display: flex;
+  height: $navHeight;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  .left-section {
+    align-items: center;
+    display: flex;
+    height: 100%;
+
+    .logo {
+      color: $blue;
+      font-family: $fira;
+      margin: 0 20px 0;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  nav {
+    height: 100%;
+  }
+
+  .nav {
+    color: $grey;
+    font-family: $open-sans;
+    font-size: 14px;
+    font-weight: 600;
+    height: 100%;
+    margin: 0 20px 0 0;
+
+    .nav-link {
+      @include transition();
+
+      box-sizing: border-box;
+      display: inline-block;
+      height: 100%;
+      padding: 15px 5px;
+      position: relative;
+      text-align: center;
+      width: 100px;
+
+      &:not(:last-child):after {
+        content: '|';
+        color: black;
+        position: absolute;
+        right: -5px;
+        top: 15px;
+      }
+
+      &:hover {
+        -moz-box-shadow:    inset 0 0 10px #000000;
+        -webkit-box-shadow: inset 0 0 10px #000000;
+        box-shadow:         inset 0 0 10px #000000;
+        cursor: pointer;
+
+        .sub-nav {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &:hover:last-child .sub-nav {
+        left: unset;
+        right: 0;
+      }
+
+      .sub-nav {
+        @include transition(opacity);
+
+        background: $white;
+        border: 1px solid $light-grey;
+        box-shadow: $shadow-dark;
+        left: -27px;
+        opacity: 0;
+        position: absolute;
+        top: $navHeight;
+        text-align: center;
+        visibility: hidden;
+        width: 150px;
+
+        .nav-link {
+          width: 100%;
+          white-space: nowrap;
+
+          &:after {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}

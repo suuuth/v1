@@ -1,0 +1,123 @@
+/* Custom Styles by Kevin Sutherland */
+
+@import "_variables";
+
+html,
+body {
+  font-family: $open-sans;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+h1,h2,h3,
+h4,h5,h6,
+p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  font-size: 25px;
+
+  &.sub {
+    font-size: 18px;
+  }
+}
+
+.header-bar {
+  height: 5px;
+  margin: 10px auto 50px;
+  width: 100px;
+}
+
+.main {
+  margin: 100px auto 0;
+  max-width: 1080px;
+
+  &.two-col {
+    display: flex;
+
+    > div {
+      width: 50%;
+    }
+  }
+
+  .header {
+    color: $blue;
+  }
+
+  p,
+  ul,
+  li {
+    color: $light-grey;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  main {
+    width: 90%;
+
+    .description {
+      margin: 20px 0;
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.contact-form {
+  margin: 0 auto;
+  width: 500px;
+
+  input,
+  textarea {
+    background: $dark-blue;
+    border: 0;
+    box-sizing: border-box;
+    color: white;
+    display: block;
+    font-family: $open-sans;
+    font-size: 13px;
+    margin: 0 auto 5px;
+    padding: 10px 15px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  textarea {
+    min-height: 150px;
+  }
+
+  .button {
+    @include transition(background);
+
+    background: transparent;
+    border: 2px solid $white;
+    margin: 10px 0 0 auto;
+    padding: 10px 20px;
+    width: unset;
+    will-change: background;
+
+    &:hover {
+      background: $red;
+      border-color: $red;
+      cursor: pointer;
+    }
+  }
+}
+
+@import "_navbar";
+@import "_header";
+@import "_footer";
+@import "_index";
